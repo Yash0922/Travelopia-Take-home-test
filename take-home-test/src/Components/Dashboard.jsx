@@ -15,6 +15,7 @@ import {
     Input
   } from '@chakra-ui/react';
   import {useEffect,useState} from "react";
+  import { exportToExcel } from './utils';
 function Dashboard(){
 
     const[state,setState]=useState([]);
@@ -42,6 +43,9 @@ function Dashboard(){
   const handleNext = () => {
     setCurrentPage((prevPage) => (prevPage === totalPages ? prevPage : prevPage + 1));
   };
+  const handleDownload = () => {
+    exportToExcel(state); // Call the utility function to export data to Excel
+  }
 
     return(
         <div>
@@ -49,7 +53,9 @@ function Dashboard(){
             <Box  m={24}>
                <Box  >
             <Heading mb={7}>DASHBOARD</Heading>
-      
+            <Button mb={7}colorScheme='teal' onClick={handleDownload}>
+              Download Excel
+            </Button>
 
        <TableContainer >
   <Table variant='striped' colorScheme='teal' >
@@ -98,6 +104,8 @@ function Dashboard(){
         <Button colorScheme='teal' onClick={handlePrevious} disabled={currentPage === 1}>Previous</Button>
         <Button colorScheme='teal'>{currentPage}</Button>
       <Button colorScheme='teal' onClick={handleNext} disabled={currentPage === totalPages}>Next</Button>
+
+      
         </Flex>
        </Box>
        </Box>
