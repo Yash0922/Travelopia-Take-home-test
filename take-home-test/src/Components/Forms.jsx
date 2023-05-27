@@ -7,7 +7,8 @@ import {
   Select,
   Button,
   Heading,
-  useToast 
+  useToast,
+  Text
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -84,8 +85,9 @@ const DestinationForm =  () => {
   let netBudget =  travelers*budget;
   return (
     
-    <Box maxWidth="400px" mx="auto">
-        <Heading> Travelopia</Heading>
+    <Box maxWidth="400px" mx="auto" boxShadow='dark-lg' p="5" rounded='md'  mt='4'mb='4' w='500%'>
+        <Heading m={5}color="teal"textShadow='1px 1px black'>   Travelopia</Heading>
+        <Text fontSize={20} m={5} >Contact us to plan your next journy!</Text>
       <form onSubmit={handleSubmit}>
         <FormControl mt={4}>
           <FormLabel>Name</FormLabel>
@@ -142,7 +144,7 @@ const DestinationForm =  () => {
           />
         </FormControl>
 
-        <Button colorScheme="teal" mt={4}style={{marginRight:"140px"}}> Net Budget: ${netBudget}
+        <Button colorScheme="teal" mt={4}style={{marginRight:"100px"}}> Net Budget: ${netBudget}
         </Button>
         <Button type="submit" colorScheme="teal" mt={4}>
           Submit
