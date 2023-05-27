@@ -11,60 +11,73 @@ import {
     Box,
     Heading,
     Button,
-    Flex
-  } from '@chakra-ui/react'
+    Flex,
+    Input
+  } from '@chakra-ui/react';
+  import {useEffect,useState} from "react";
 function Dashboard(){
+
+    const[state,setState]=useState([]);
+    const [pagenum,setPage]=useState(1);
+
+    useEffect(()=>{
+        getData()
+      
+    },[])
+
+    const getData = async () => {
+        var res = await fetch(`https://travelopia-backend.vercel.app/info`);
+        var data = await res.json();
+        console.log("data",data);
+        setState(data); // Update Phase
+      };
+    
+
     return(
-        <Box  m={24}>
-        <Box  >
+        <div>
+          
+            <Box  m={24}>
+               <Box  >
             <Heading mb={7}>DASHBOARD</Heading>
       
 
-       <TableContainer>
+       <TableContainer >
   <Table variant='striped' colorScheme='teal'>
     {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
+   
     <Thead >
       <Tr>
       <Th fontSize='md'>Id</Th>
         <Th fontSize='md'>Name</Th>
         <Th fontSize='md'>E-mail Address</Th>
         <Th fontSize='md'>Destination</Th>
-        <Th fontSize='md' isNumeric>Traveller Count</Th>
+        <Th  fontSize='md' isNumeric>Count</Th>
         <Th fontSize='md' isNumeric>Budget per person</Th>
       </Tr>
     </Thead>
+   
+  
     <Tbody>
-      <Tr>
-        <Td>aa</Td>
-        <Td>Annu</Td>
-        <Td >annu@gmail.com</Td>
-        <Td>Europe</Td>
-     <Td isNumeric>4</Td>
-        <Td isNumeric>$2500</Td>
-      </Tr>
+    {state.map((ele)=>{
+            return (
+                
       <Tr>
      
-        <Td>bb</Td>
-        <Td>Yash</Td>
-        <Td>yash@gmail.com</Td>
-        <Td>Africa</Td>
-        <Td isNumeric>2</Td>
-        <Td isNumeric>$1500</Td>
+        <Td>{ele._id}</Td>
+        <Td>{ele.name}</Td>
+        <Td >{ele.Email}</Td>
+        <Td>{ele.Location}</Td>
+          <Td isNumeric>{ele.Number_of_touriest}</Td>
+        <Td isNumeric>{ele.Budget_per_person}</Td>
+     
       </Tr>
-      <Tr>
-        <Td>cc</Td>
-        <Td>Riya</Td>
-        <Td>riya@gmail.com</Td>
-        <Td>Europe</Td>
-        <Td isNumeric>3</Td>
-        <Td isNumeric>$2200</Td>
-      </Tr>
+            )
+    })}
+      
     </Tbody>
+ 
     {/* <Tfoot  border="solid black" w="200px">
-        <Flex gap={20}>
-        <Button colorScheme='teal'>Previous</Button>
-      <Button colorScheme='teal'>Next</Button>
-        </Flex>
+       
       
     </Tfoot> */}
   </Table>
@@ -73,10 +86,15 @@ function Dashboard(){
        <Box   mt={4}> 
        <Flex  justifyContent="space-between">
         <Button colorScheme='teal'>Previous</Button>
+        <Button colorScheme='teal'>{pagenum}</Button>
       <Button colorScheme='teal'>Next</Button>
         </Flex>
        </Box>
        </Box>
+
+        
+        </div>
+        
     )
 }
 export default Dashboard;
