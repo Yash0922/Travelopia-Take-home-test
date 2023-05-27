@@ -9,6 +9,7 @@ import {
   Heading,
   useToast 
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const DestinationForm =  () => {
   const [name, setName] = useState("");
@@ -17,6 +18,7 @@ const DestinationForm =  () => {
   const [travelers, setTravelers] = useState(1);
   const [budget, setBudget] = useState("");
   const toast = useToast();
+  const navigate = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
 
@@ -47,6 +49,7 @@ const DestinationForm =  () => {
           duration: 3000,
           isClosable: true
         });
+        navigate("/dashboard");
         console.log("Form submitted successfully");
       } else {
         // Handle error response
@@ -78,7 +81,7 @@ const DestinationForm =  () => {
     setTravelers(1);
     setBudget("");
   };
-
+  let netBudget =  travelers*budget;
   return (
     
     <Box maxWidth="400px" mx="auto">
@@ -138,8 +141,9 @@ const DestinationForm =  () => {
             required
           />
         </FormControl>
-        
 
+        <Button colorScheme="teal" mt={4}style={{marginRight:"140px"}}> Net Budget: ${netBudget}
+        </Button>
         <Button type="submit" colorScheme="teal" mt={4}>
           Submit
         </Button>
