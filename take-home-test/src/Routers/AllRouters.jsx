@@ -7,7 +7,7 @@ function AllRouters(props) {
     return (
         <div>
             <Routes>
-                <Route path="/form" element={<DestinationForm/>}/>
+                <Route path="/" element={<DestinationForm/>}/>
                 <Route path="/dashboard" element={<Dashboard/>}/>
             </Routes>    
         </div>

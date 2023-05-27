@@ -52,7 +52,7 @@ export default function Navbar() {
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
             <NavLink  to="/dashboard">Dashboard</NavLink>
-              <NavLink to="/form">Form</NavLink>
+              <NavLink to="/">Form</NavLink>
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
@@ -74,7 +74,7 @@ export default function Navbar() {
                     <NavLink to="/dashboard">Dashboard</NavLink>
                   </MenuItem>
                   <MenuItem>
-                    <NavLink to="/form">Form</NavLink>
+                    <NavLink to="/">Form</NavLink>
                   </MenuItem>
                   
               
