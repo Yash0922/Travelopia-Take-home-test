@@ -52,7 +52,7 @@ function Dashboard(){
           
             <Box  m={24}>
                <Box  >
-            <Heading mb={7}>DASHBOARD</Heading>
+            <Heading mb={7}color="teal"textShadow='1px 1px black'>DASHBOARD</Heading>
             <Button mb={7}colorScheme='teal' onClick={handleDownload}>
               Download Excel
             </Button>
