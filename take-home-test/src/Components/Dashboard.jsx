@@ -16,20 +16,21 @@ import {
 function Dashboard(){
     return(
         <Box  m={24}>
+        <Box  >
             <Heading mb={7}>DASHBOARD</Heading>
       
 
        <TableContainer>
   <Table variant='striped' colorScheme='teal'>
     {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
-    <Thead>
+    <Thead >
       <Tr>
-      <Th >Id</Th>
-        <Th>Name</Th>
-        <Th>E-mail Address</Th>
-        <Th>Destination</Th>
-        <Th isNumeric>Traveller Count</Th>
-        <Th isNumeric>Budget per person</Th>
+      <Th fontSize='md'>Id</Th>
+        <Th fontSize='md'>Name</Th>
+        <Th fontSize='md'>E-mail Address</Th>
+        <Th fontSize='md'>Destination</Th>
+        <Th fontSize='md' isNumeric>Traveller Count</Th>
+        <Th fontSize='md' isNumeric>Budget per person</Th>
       </Tr>
     </Thead>
     <Tbody>
@@ -59,16 +60,23 @@ function Dashboard(){
         <Td isNumeric>$2200</Td>
       </Tr>
     </Tbody>
-    <Tfoot>
+    {/* <Tfoot  border="solid black" w="200px">
         <Flex gap={20}>
-        <Button>Previous</Button>
-      <Button>Next</Button>
+        <Button colorScheme='teal'>Previous</Button>
+      <Button colorScheme='teal'>Next</Button>
         </Flex>
       
-    </Tfoot>
+    </Tfoot> */}
   </Table>
 </TableContainer>
         </Box>
+       <Box   mt={4}> 
+       <Flex  justifyContent="space-between">
+        <Button colorScheme='teal'>Previous</Button>
+      <Button colorScheme='teal'>Next</Button>
+        </Flex>
+       </Box>
+       </Box>
     )
 }
 export default Dashboard;
