@@ -6,21 +6,70 @@ import {
   Input,
   Select,
   Button,
-  Heading
+  Heading,
+  useToast 
 } from "@chakra-ui/react";
-
-const DestinationForm = () => {
+import axios from "axios";
+const DestinationForm =  () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [destination, setDestination] = useState("");
   const [travelers, setTravelers] = useState(1);
   const [budget, setBudget] = useState("");
-
-  const handleSubmit = (e) => {
+  const toast = useToast();
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    // Process form submission here
-    // You can access the form data in the state variables: name, email, destination, travelers, budget
+    const data = {
+      name: name,
+      Email: email,
+      Location: destination,
+      Number_of_touriest: travelers,
+      Budget_per_person: budget
+    };
+    
+    try {
+      const response = await axios.post(
+        "https://travelopia-backend-git-main-yash0922.vercel.app/addData",
+        data
+      );
+  
+
+     
+
+      if (response.status === 200) {
+        // Handle successful response
+        let id= response.data._id;
+        toast({
+          title: "Form submitted successfully",
+          status: "success",
+          description: `ID: ${id}`,
+          duration: 3000,
+          isClosable: true
+        });
+        console.log("Form submitted successfully");
+      } else {
+        // Handle error response
+        toast({
+          title: "Form submission failed",
+          status: "error",
+          duration: 3000,
+          isClosable: true
+        });
+        console.log("Form submission failed");
+      }
+    } catch (error) {
+      // Handle network error
+      
+      toast({
+        title: "Error",
+        description: error.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true
+      });
+      console.log("Error:", error);
+    }
 
     // Reset the form after submission
     setName("");
@@ -62,6 +111,7 @@ const DestinationForm = () => {
             onChange={(e) => setDestination(e.target.value)}
             required
           >
+            <option value="">Select a destination</option>
             <option value="India">India</option>
             <option value="Africa">Africa</option>
             <option value="Europe">Europe</option>
@@ -72,7 +122,7 @@ const DestinationForm = () => {
           <FormLabel>No. of travellers</FormLabel>
           <Input
             type="number"
-            value={travelers}
+            value={travelers || ''}
             onChange={(e) => setTravelers(parseInt(e.target.value))}
             min={1}
             required
@@ -83,11 +133,12 @@ const DestinationForm = () => {
           <FormLabel>Budget Per Person ($)</FormLabel>
           <Input
             type="number"
-            value={budget}
+            value={budget || ''}
             onChange={(e) => setBudget(e.target.value)}
             required
           />
         </FormControl>
+        
 
         <Button type="submit" colorScheme="teal" mt={4}>
           Submit
