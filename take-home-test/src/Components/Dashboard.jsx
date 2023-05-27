@@ -18,20 +18,30 @@ import {
 function Dashboard(){
 
     const[state,setState]=useState([]);
-    const [pagenum,setPage]=useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 4;
 
     useEffect(()=>{
         getData()
       
-    },[])
+    },[currentPage])
 
     const getData = async () => {
         var res = await fetch(`https://travelopia-backend.vercel.app/info`);
         var data = await res.json();
         console.log("data",data);
         setState(data); // Update Phase
+       
       };
-    
+      const totalPages = Math.ceil(state.length / itemsPerPage);
+
+  const handlePrevious = () => {
+    setCurrentPage((prevPage) => (prevPage === 1 ? prevPage : prevPage - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prevPage) => (prevPage === totalPages ? prevPage : prevPage + 1));
+  };
 
     return(
         <div>
@@ -42,7 +52,7 @@ function Dashboard(){
       
 
        <TableContainer >
-  <Table variant='striped' colorScheme='teal'>
+  <Table variant='striped' colorScheme='teal' >
     {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
    
     <Thead >
@@ -51,14 +61,14 @@ function Dashboard(){
         <Th fontSize='md'>Name</Th>
         <Th fontSize='md'>E-mail Address</Th>
         <Th fontSize='md'>Destination</Th>
-        <Th  fontSize='md' isNumeric>Count</Th>
-        <Th fontSize='md' isNumeric>Budget per person</Th>
+        <Th style={{textAlign:"center"}}  fontSize='md' isNumeric> Traveller Count</Th>
+        <Th style={{textAlign:"center"}}  fontSize='md' isNumeric>Budget per person</Th>
       </Tr>
     </Thead>
    
   
     <Tbody>
-    {state.map((ele)=>{
+    {state.slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage).map((ele)=>{
             return (
                 
       <Tr>
@@ -67,8 +77,8 @@ function Dashboard(){
         <Td>{ele.name}</Td>
         <Td >{ele.Email}</Td>
         <Td>{ele.Location}</Td>
-          <Td isNumeric>{ele.Number_of_touriest}</Td>
-        <Td isNumeric>{ele.Budget_per_person}</Td>
+          <Td style={{textAlign:"center"}} isNumeric>{ele.Number_of_touriest}</Td>
+        <Td style={{textAlign:"center"}} isNumeric>{ele.Budget_per_person}</Td>
      
       </Tr>
             )
@@ -85,9 +95,9 @@ function Dashboard(){
         </Box>
        <Box   mt={4}> 
        <Flex  justifyContent="space-between">
-        <Button colorScheme='teal'>Previous</Button>
-        <Button colorScheme='teal'>{pagenum}</Button>
-      <Button colorScheme='teal'>Next</Button>
+        <Button colorScheme='teal' onClick={handlePrevious} disabled={currentPage === 1}>Previous</Button>
+        <Button colorScheme='teal'>{currentPage}</Button>
+      <Button colorScheme='teal' onClick={handleNext} disabled={currentPage === totalPages}>Next</Button>
         </Flex>
        </Box>
        </Box>
