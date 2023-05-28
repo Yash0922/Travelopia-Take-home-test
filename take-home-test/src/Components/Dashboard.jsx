@@ -101,9 +101,9 @@ function Dashboard(){
         </Box>
        <Box   mt={4}> 
        <Flex  justifyContent="space-between">
-        <Button colorScheme='teal' onClick={handlePrevious} disabled={currentPage === 1}>Previous</Button>
-        <Button colorScheme='teal'>{currentPage}</Button>
-      <Button colorScheme='teal' onClick={handleNext} disabled={currentPage === totalPages}>Next</Button>
+        <Button id="prev" colorScheme='teal' onClick={handlePrevious} disabled={currentPage === 1}>Previous</Button>
+        <Button id="current"colorScheme='teal'>{currentPage}</Button>
+      <Button id="next"colorScheme='teal' onClick={handleNext} disabled={currentPage === totalPages}>Next</Button>
 
       
         </Flex>
