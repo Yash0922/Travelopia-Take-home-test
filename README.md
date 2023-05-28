@@ -28,24 +28,16 @@ You can use MongoDB Atlas or start a local instance via a local installation of 
 `REPO Link`= https://github.com/Yash0922/Travelopia_backend
 
 `Use This backend Deploy link`=https://travelopia-backend.vercel.app/
-(enter your connection string below)
 
 
+`Use for POST data`=https://travelopia-backend.vercel.app/addData
+`Use for GET data`=https://travelopia-backend.vercel.app/info
 
 ```bash
  `MONGO_URL`=mongodb+srv://name:password@cluster0.ss532hp.mongodb.net/travelopiaData?appName=mongosh+1.8.0
 ```
 4.start the back-end development server.
 
-# Inside /travelopia-backend-
-
-
-```bash
-   npm run dev
-```
-
-
-The back-end server is available at http://localhost:8080
 
 # Inside /take-home-test
 
