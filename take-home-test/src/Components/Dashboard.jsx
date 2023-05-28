@@ -80,11 +80,11 @@ function Dashboard(){
       <Tr>
      
         <Td>{ele._id}</Td>
-        <Td id='dashboardName'>{ele.name}</Td>
-        <Td id='dashboardEmail'>{ele.Email}</Td>
-        <Td id='dashboardDestination'>{ele.Location}</Td>
-          <Td id='dashboardTravellers'style={{textAlign:"center"}} isNumeric>{ele.Number_of_touriest}</Td>
-        <Td id='dashboardBudget'style={{textAlign:"center"}} isNumeric>{ele.Budget_per_person}</Td>
+        <Td className='dashboardName'>{ele.name}</Td>
+        <Td className='dashboardEmail'>{ele.Email}</Td>
+        <Td className='dashboardDestination'>{ele.Location}</Td>
+          <Td className='dashboardTravellers'style={{textAlign:"center"}} isNumeric>{ele.Number_of_touriest}</Td>
+        <Td className='dashboardBudget'style={{textAlign:"center"}} isNumeric>{ele.Budget_per_person}</Td>
      
       </Tr>
             )
