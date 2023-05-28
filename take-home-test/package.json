@@ -17,12 +17,14 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
+    "start-server-and-test":"^2.0.0",
     "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "cypress":"cypress open",
+    "test": " start-server-and-test start 3000 cypress",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
