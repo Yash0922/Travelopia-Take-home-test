@@ -1,6 +1,6 @@
 describe('Form Submission Test', () => {
     beforeEach(() => {
-        cy.visit('https://travelopia-take-home-test.vercel.app/');
+        cy.visit('http://localhost:3000/');
       });
 
       it('Make to plan a journey', () => {
@@ -23,7 +23,7 @@ describe('Form Submission Test', () => {
   });
   describe('Dashboard Test', () => {
     beforeEach(() => {
-      cy.visit('https://travelopia-take-home-test.vercel.app/dashboard');
+      cy.visit('http://localhost:3000/dashboard');
     });
     it('should data present in dashboard',() => {
       cy.get('table td').should('exist');
@@ -59,7 +59,7 @@ describe('Form Submission Test', () => {
     })
   describe('Pagination Test', () => {
     beforeEach(() => {
-      cy.visit('https://travelopia-take-home-test.vercel.app/dashboard');
+      cy.visit('http://localhost:3000/dashboard');
     });
   
     it('should navigate through pages using pagination', () => {
