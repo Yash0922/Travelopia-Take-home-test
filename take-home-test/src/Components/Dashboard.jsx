@@ -64,11 +64,11 @@ function Dashboard(){
     <Thead >
       <Tr>
       <Th fontSize='md'>Id</Th>
-        <Th id='dashboardName' fontSize='md'>Name</Th>
-        <Th  id='dashboardEmail'fontSize='md'>E-mail Address</Th>
-        <Th id='dashboardDestination'fontSize='md'>Destination</Th>
-        <Th id='dashboardTravellers'style={{textAlign:"center"}}  fontSize='md' isNumeric> Traveller Count</Th>
-        <Th id='dashboardBudget' style={{textAlign:"center"}}  fontSize='md' isNumeric>Budget per person</Th>
+        <Th  fontSize='md'>Name</Th>
+        <Th  fontSize='md'>E-mail Address</Th>
+        <Th fontSize='md'>Destination</Th>
+        <Th style={{textAlign:"center"}}  fontSize='md' isNumeric> Traveller Count</Th>
+        <Th  style={{textAlign:"center"}}  fontSize='md' isNumeric>Budget per person</Th>
       </Tr>
     </Thead>
    
@@ -80,11 +80,11 @@ function Dashboard(){
       <Tr>
      
         <Td>{ele._id}</Td>
-        <Td>{ele.name}</Td>
-        <Td >{ele.Email}</Td>
-        <Td>{ele.Location}</Td>
-          <Td style={{textAlign:"center"}} isNumeric>{ele.Number_of_touriest}</Td>
-        <Td style={{textAlign:"center"}} isNumeric>{ele.Budget_per_person}</Td>
+        <Td id='dashboardName'>{ele.name}</Td>
+        <Td id='dashboardEmail'>{ele.Email}</Td>
+        <Td id='dashboardDestination'>{ele.Location}</Td>
+          <Td id='dashboardTravellers'style={{textAlign:"center"}} isNumeric>{ele.Number_of_touriest}</Td>
+        <Td id='dashboardBudget'style={{textAlign:"center"}} isNumeric>{ele.Budget_per_person}</Td>
      
       </Tr>
             )
