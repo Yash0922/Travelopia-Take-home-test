@@ -30,8 +30,10 @@ You can use MongoDB Atlas or start a local instance via a local installation of 
 `Use This backend Deploy link`=https://travelopia-backend.vercel.app/
 
 
-`Use for POST data`=https://travelopia-backend.vercel.app/addData
-`Use for GET data`=https://travelopia-backend.vercel.app/info
+`Use for POST data`=https://travelopia-backend.vercel.app/addData/
+
+
+`Use for GET data`=https://travelopia-backend.vercel.app/info/
 
 ```bash
  `MONGO_URL`=mongodb+srv://name:password@cluster0.ss532hp.mongodb.net/travelopiaData?appName=mongosh+1.8.0
