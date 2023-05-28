@@ -64,11 +64,11 @@ function Dashboard(){
     <Thead >
       <Tr>
       <Th fontSize='md'>Id</Th>
-        <Th fontSize='md'>Name</Th>
-        <Th fontSize='md'>E-mail Address</Th>
-        <Th fontSize='md'>Destination</Th>
-        <Th style={{textAlign:"center"}}  fontSize='md' isNumeric> Traveller Count</Th>
-        <Th style={{textAlign:"center"}}  fontSize='md' isNumeric>Budget per person</Th>
+        <Th id='dashboardName' fontSize='md'>Name</Th>
+        <Th  id='dashboardEmail'fontSize='md'>E-mail Address</Th>
+        <Th id='dashboardDestination'fontSize='md'>Destination</Th>
+        <Th id='dashboardTravellers'style={{textAlign:"center"}}  fontSize='md' isNumeric> Traveller Count</Th>
+        <Th id='dashboardBudget' style={{textAlign:"center"}}  fontSize='md' isNumeric>Budget per person</Th>
       </Tr>
     </Thead>
    
