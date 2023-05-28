@@ -93,6 +93,7 @@ const DestinationForm =  () => {
           <FormLabel>Name</FormLabel>
           <Input
             type="text"
+            id="Name_id"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -103,6 +104,7 @@ const DestinationForm =  () => {
           <FormLabel>Email address</FormLabel>
           <Input
             type="email"
+            id="Email_id"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -115,6 +117,7 @@ const DestinationForm =  () => {
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             required
+            id="Destination_id"
           >
             <option value="">Select a destination</option>
             <option value="India">India</option>
@@ -127,6 +130,7 @@ const DestinationForm =  () => {
           <FormLabel>No. of travellers</FormLabel>
           <Input
             type="number"
+            id="Number_of_Traveller_id"
             value={travelers || ''}
             onChange={(e) => setTravelers(parseInt(e.target.value))}
             min={1}
@@ -138,6 +142,7 @@ const DestinationForm =  () => {
           <FormLabel>Budget Per Person ($)</FormLabel>
           <Input
             type="number"
+            id="budgetPerPerson_id"
             value={budget || ''}
             onChange={(e) => setBudget(e.target.value)}
             required
@@ -146,7 +151,7 @@ const DestinationForm =  () => {
 
         <Button colorScheme="teal" mt={4}style={{marginRight:"100px"}}> Net Budget: ${netBudget}
         </Button>
-        <Button type="submit" colorScheme="teal" mt={4}>
+        <Button id="submit_id" type="submit" colorScheme="teal" mt={4}>
           Submit
         </Button>
       </form>
