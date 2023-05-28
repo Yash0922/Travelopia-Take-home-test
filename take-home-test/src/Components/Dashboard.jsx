@@ -102,7 +102,7 @@ function Dashboard(){
        <Box   mt={4}> 
        <Flex  justifyContent="space-between">
         <Button id="prev" colorScheme='teal' onClick={handlePrevious} disabled={currentPage === 1}>Previous</Button>
-        <Button id="current"colorScheme='teal'>{currentPage}</Button>
+        <Button id="current"colorScheme='teal'>{currentPage} of  &nbsp;<span id="totalPages"> {totalPages}</span></Button>
       <Button id="next"colorScheme='teal' onClick={handleNext} disabled={currentPage === totalPages}>Next</Button>
 
       
